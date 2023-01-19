@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko" class="h-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Blog</title>
+    <!-- Loading the static files. -->
+    <link
+      rel="stylesheet"
+      href="{% static '/libs/bootstrap-4.6.2/css/bootstrap.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static '/libs/font-awesome-6.2.1/css/all.min.css' %}"
+    />
+    <title>Landing_Page</title>
+  </head>
+
+  <body>
+    {% include 'base/Mypage_nav_afterLogin.html' %}
+    <!-- search result head -->
+    <div class="ml-3">
+      <h3>Search results</h3>
+    </div>
+
+    <!-- A card. -->
+    <div class="card ml-5 mt-3 mr-5 mb-2">
+      <div class="row">
+        <div class="col-md-1">
+          <img
+            class="mr-3 ml-3 mt-3 mb-3"
+            src="https://images.pexels.com/photos/4041242/pexels-photo-4041242.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            width="120%"
+            height="80%"
+            alt="image broken"
+          />
+        </div>
+        <div class="col-md-11">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <span>
+                <h5 class="card-title">Card title</h5>
+              </span>
+              <span class="card-text">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </span>
+            </div>
+            <p class="card-text">
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit
+              longer. This is a wider card with supporting text below as a
+              natural lead-in to additional content. This content is a little
+              bit longer.....
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- A card. -->
+    <div class="card ml-5 mt-4 mr-5 mb-2">
+      <div class="row">
+        <div class="col-md-1">
+          <img
+            class="mr-3 ml-3 mt-3 mb-3"
+            src="https://images.pexels.com/photos/4041242/pexels-photo-4041242.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            width="120%"
+            height="80%"
+            alt="image broken"
+          />
+        </div>
+        <div class="col-md-11">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <span>
+                <h5 class="card-title">Card title</h5>
+              </span>
+              <span class="card-text">
+                <small class="text-muted">Last updated 3 mins ago</small>
+              </span>
+            </div>
+            <p class="card-text">
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit
+              longer. This is a wider card with supporting text below as a
+              natural lead-in to additional content. This content is a little
+              bit longer.....
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="{% static '/libs/jquery-3.6.3/jquery-3.6.3.min.js' %}"></script>
+    <script src="{% static '/libs/popper-1.16.1/popper.min.js' %}"></script>
+    <script src="{% static '/libs/bootstrap-4.6.2/js/bootstrap.min.js' %}"></script>
+    <script src="{% static '/libs/font-awesome-6.2.1/js/all.min.js' %}"></script>
+  </body>
+</html>

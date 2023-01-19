@@ -1,0 +1,75 @@
+{% load static %} {% load socialaccount %}
+
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <title>post_detail_sample</title>
+  <link rel="shortcut icon" href="{% static '/libs/mogo/images/ico/favicon.jpg' %}" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144"
+    href="{% static '/libs/mogo/images/ico/apple-touch-icon-144-precomposed.png' %}" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114"
+    href="{% static '/libs/mogo/images/ico/apple-touch-icon-114-precomposed.png ' %}" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72"
+    href="{% static '/libs/mogo/images/ico/apple-touch-icon-72-precomposed.png ' %}" />
+  <link rel="apple-touch-icon-precomposed"
+    href="{% static '/libs/mogo/images/ico/apple-touch-icon-57-precomposed.png ' %}" />
+  <link rel="stylesheet" href="{% static '/libs/bootstrap-4.6.2/css/bootstrap.min.css' %}" />
+  <link rel="stylesheet" href="{% static '/libs/font-awesome-6.2.1/css/all.min.css' %}" />
+
+  <link rel="stylesheet" type="text/css" href="{% static '/libs/mogo/css/materialdesignicons.min.css ' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static '/libs/mogo/css/jquery.mCustomScrollbar.min.css ' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static '/libs/mogo/css/prettyPhoto.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static '/libs/mogo/css/unslider.css ' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static '/libs/mogo/css/template.css ' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static '/libs/footer.css' %}" />
+
+</head>
+
+<body>
+  {% include 'base/nav.html' %}
+  <div class="container" id="wrap">
+
+    <div class="center" style="width: 100%; height: 100%">
+      <form method="post" novalidate class="card" enctype="multipart/form-data">
+        {%csrf_token %}
+        <h2>Update</h2>
+        {% for field in form %} {% if field.name == 'completed' %}
+        <p>{{ field.label_tag }} {{ field }}</p>
+        {% if field.errors %}
+        <small class="error">{{ field.errors|striptags }}</small>
+        {% endif %} {% else %} {{ field.label_tag }} {{ field }} {% if field.errors %}
+        <small class="error">{{ field.errors|striptags }}</small>
+        {% endif %} {% endif %} {% endfor %}
+
+        <div class="form-buttons">
+          <input type="submit" value="Save" class="btn btn-primary" />
+          <a href="/blog/mypage/" class="btn btn-outline">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+  {% include 'base/footer.html' %}
+
+
+
+  <script type="text/javascript" src="{% static '/libs/mogo/js/jquery.min.js' %}"></script>
+  <script type="text/javascript" src="{% static '/libs/mogo/js/isotope.pkgd.min.js' %}"></script>
+  <script type="text/javascript" src="{% static '/libs/mogo/js/jquery.prettyPhoto.js' %}"></script>
+  <script type="text/javascript" src="{% static '/libs/mogo/js/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{% static '/libs/mogo/js/jquery.hoverdir.js' %}"></script>
+  <script type="text/javascript" src="{% static '/libs/mogo/js/modernizr.custom.97074.js' %}"></script>
+  <script type="text/javascript" src="{% static '/libs/mogo/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+  <script type="text/javascript" src="{% static '/libs/mogo/js/unslider-min.js' %}"></script>
+  <script type="text/javascript" src="{% static '/libs/mogo/js/template.js' %}"></script>
+
+  <script src="{% static '/libs/jquery-3.6.3/jquery-3.6.3.min.js' %}"></script>
+  <script src="{% static '/libs/popper-1.16.1/popper.min.js' %}"></script>
+  <script src="{% static '/libs/bootstrap-4.6.2/js/bootstrap.min.js' %}"></script>
+  <script src="{% static '/libs/font-awesome-6.2.1/js/all.min.js' %}"></script>
+</body>
+
+</html>

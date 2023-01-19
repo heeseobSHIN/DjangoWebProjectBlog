@@ -1,0 +1,51 @@
+{% load static %} {% load socialaccount %}
+
+<div class="navbar navbar-dark bg-dark">
+  <div class="ml-auto col-md-2">
+    <a class="navbar-brand" href="/"><i class="fa-brands fa-blogger"></i>Blog_Icon</a>
+  </div>
+  <div class="ml-auto col-md-8">
+    <form action="" method="get">
+      <div class="input-group col-md-8">
+        <input type="text" name="search" class="form-control" />
+
+        <button class="btn btn-secondary">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+  {% if user.is_authenticated %}
+  <div class="ml-auto col-md-2">
+    <div class="row">
+
+      <button class="btn btn-light rounded-circle" type="button" data-toggle="dropdown" aria-expanded="false">
+        <i class="rounded-circle fa-regular" width="10%" height="10%" src="/media/{{ user.user_icon }}"></i>
+
+      </button>
+      <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown">
+        {{ user.username }}</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="/accounts/logout/">Log Out</a>
+        <a class="dropdown-item" href="/blog/mypage">My page</a>
+        {% if user.is_superuser %}
+        <a class="dropdown-item" href="/admin/">Admin Page</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <div class="ml-auto col-md-1">
+    <button class="btn btn-secondary rounded-circle" type="button" data-toggle="dropdown" aria-expanded="false">
+      <i class="fa-regular fa-user"></i>
+    </button>
+    <div class="dropdown-menu">
+      <a role="button" class="dropdown-item btn-outline-dark btn-light btn-sm" href="{% provider_login_url 'google' %}">
+        <i class="fab fa-google mr-2"></i>Log in with Google
+      </a>
+      <a class="dropdown-item" href="/auth/signup">Signup in page</a>
+      <a class="dropdown-item" href="/auth/signin">Login in page</a>
+    </div>
+  </div>
+  {% endif %}
+</div>

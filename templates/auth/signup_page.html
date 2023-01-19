@@ -1,0 +1,73 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko" class="h-100">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Blog</title>
+  <!-- Loading the static files. -->
+  <link rel="stylesheet" href="{% static '/libs/bootstrap-4.6.2/css/bootstrap.min.css' %}" />
+  <link rel="stylesheet" href="{% static '/libs/font-awesome-6.2.1/css/all.min.css' %}" />
+  <title>Landing_Page</title>
+</head>
+
+<body class="h-100">
+  {% include 'base/Mypage_nav_beforeLogin.html' %}
+  <div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+      <div class="col-10 col-md-8 col-lg-6">
+        <form method="POST" action="{% url 'customauth:signup' %}">
+          {% csrf_token %}{% include 'auth/form_errors.html' %}
+          <div>
+            <label class="form-label" for="form2Example1">아이디</label>
+            <input type="id" id="userid" name="username" class="form-control"
+              value="{{ form.userid.value|default_if_none:'' }}" />
+          </div>
+          <div>
+            <label class="form-label" for="form2Example1">이메일</label>
+            <input type="email" id="email" name="email" class="form-control"
+              value="{{ form.email.value|default_if_none:'' }}" />
+          </div>
+          <div>
+            <label class="form-label" for="form2Example1">닉네임</label>
+            <input type="text" id="nickname" name="nickname" class="form-control"
+              value="{{ form.nickname.value|default_if_none:'' }}" />
+          </div>
+          <div>
+            <label class="form-label" for="form2Example1">비밀번호</label>
+            <input type="password" id="password1" name="password1" class="form-control"
+              value="{{ form.password1.value|default_if_none:'' }}" />
+          </div>
+          <div class="form-outline mb-4">
+            <label class="form-label" for="form2Example2">비밀번호확인</label>
+            <input type="password" id="password2" name="password2" class="form-control"
+              value="{{ form.password2.value|default_if_none:'' }}" />
+          </div>
+          <div class="d-flex justify-content-between">
+
+
+            <input type="submit" class="h-100 w-50 btn btn-primary mr-3" value="회원가입" />
+            <!-- <button type="submit" class="h-100 w-50 btn btn-primary mr-3">
+              회원가입
+            </button> -->
+            <input type="submit" class="h-100 w-50 btn btn-primary mr-3" value="취소" />
+            <!-- <button type="submit" class="h-100 w-50 btn btn-primary ml-3">
+              취소
+            </button> -->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static '/libs/jquery-3.6.3/jquery-3.6.3.min.js' %}"></script>
+  <script src="{% static '/libs/popper-1.16.1/popper.min.js' %}"></script>
+  <script src="{% static '/libs/bootstrap-4.6.2/js/bootstrap.min.js' %}"></script>
+  <script src="{% static '/libs/font-awesome-6.2.1/js/all.min.js' %}"></script>
+</body>
+
+</html>
